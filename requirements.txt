@@ -1,0 +1,9 @@
+typer
+rich
+openai
+anthropic
+google-generativeai
+llama-cpp-python
+python-dotenv
+
+setuptools
