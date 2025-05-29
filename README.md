@@ -19,7 +19,7 @@ Reflex is a powerful CLI tool that tracks your tasks, focus sessions, and work l
 
 1. **Clone the repository**:
 ```bash
-git clone [[reflex-cli](https://github.com/priyanshunawaldev/reflex-cli.git)](https://github.com/priyanshunawaldev/reflex-cli.git)
+git clone https://github.com/priyanshunawaldev/reflex-cli.git
 cd reflex
 ```
 
@@ -209,7 +209,7 @@ sqlite3 ~/.reflex/reflex.db "SELECT * FROM tasks WHERE date_added = date('now');
 ### Development Setup
 ```bash
 # Clone and setup
-git clone [https://github.com/priyanshunawaldev/reflex-cli.git](https://github.com/priyanshunawaldev/reflex-cli.git)
+git clone https://github.com/priyanshunawaldev/reflex-cli.git
 cd reflex
 pip install -r requirements.txt
 
