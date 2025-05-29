@@ -19,7 +19,7 @@ Reflex is a powerful CLI tool that tracks your tasks, focus sessions, and work l
 
 1. **Clone the repository**:
 ```bash
-git clone <your-repo-url>
+git clone [[reflex-cli](https://github.com/priyanshunawaldev/reflex-cli.git)](https://github.com/priyanshunawaldev/reflex-cli.git)
 cd reflex
 ```
 
@@ -50,6 +50,15 @@ python main.py [command]
 ## 📖 Usage Guide
 
 ### Basic Commands
+| Command      | Description                                                        |
+|--------------|--------------------------------------------------------------------|
+| `add`        | 📋 Add a task to your current day                                  |
+| `ai-review`  | 🤖 AI reviews your day and suggests improvements                   |
+| `complete`   | ✅ Mark a task as completed                                        |
+| `focus`      | ⏱️ Start a focus session with timer                               |
+| `list-tasks` | 📋 List all tasks for today                                        |
+| `log`        | 📖 Add to your daily work log                                      |
+| `stats`      | 📊 Show tasks done today and time spent                            |
 
 #### 📋 Task Management
 ```bash
@@ -57,7 +66,7 @@ python main.py [command]
 reflex add "Write blog post about AI"
 
 # List today's tasks
-reflex list
+reflex list-tasks
 
 # Complete a task (use ID from list)
 reflex complete 1
@@ -66,7 +75,7 @@ reflex complete 1
 #### ⏱️ Focus Sessions
 ```bash
 # Start a 25-minute focus session (Pomodoro)
-reflex start focus
+reflex focus
 
 # The timer shows a progress bar and can be stopped with Ctrl+C
 ```
@@ -89,7 +98,7 @@ reflex stats
 #### 🤖 AI Review
 ```bash
 # Get AI-powered daily review and suggestions
-reflex review
+reflex ai-review
 ```
 
 ### Sample Workflow
@@ -103,7 +112,7 @@ reflex add "Write documentation"
 reflex add "Team meeting at 2pm"
 
 # Start working with focus
-reflex start focus
+reflex focus
 # ... work for 25 minutes ...
 
 # Log your progress
@@ -113,7 +122,7 @@ reflex log "Reviewed 3 PRs, found performance issue in auth module"
 reflex stats
 
 # End of day: Get AI insights
-reflex review
+reflex ai-review
 ```
 
 ## 📊 Sample Output
@@ -156,7 +165,7 @@ reflex review
 - **CLI Framework**: Typer (elegant, type-hinted CLI)
 - **UI**: Rich (beautiful terminal formatting)
 - **Database**: SQLite (local, no setup required)
-- **AI**: OpenAI GPT-3.5-turbo
+- **AI**: OpenAI GPT-3.5-turbo, more adding soon!
 - **Configuration**: python-dotenv
 
 ### Data Storage
@@ -195,23 +204,12 @@ ls ~/.reflex/
 sqlite3 ~/.reflex/reflex.db "SELECT * FROM tasks WHERE date_added = date('now');"
 ```
 
-## 🤝 Contributing
 
-This is an MVP implementation. Some ideas for extensions:
-
-### Planned Features
-- 🗓️ **Weekly/Monthly Reports**: Longer-term productivity analysis
-- 📈 **Productivity Trends**: Charts and graphs of your progress
-- 🔗 **GitHub Integration**: Automatically track commits
-- 📤 **Export Options**: Markdown, CSV, or JSON exports
-- ⚙️ **Custom Timers**: Different focus session lengths
-- 🏷️ **Task Categories**: Tag and categorize your tasks
-- 📱 **Cross-platform**: Package as standalone executable
 
 ### Development Setup
 ```bash
 # Clone and setup
-git clone <repo>
+git clone [https://github.com/priyanshunawaldev/reflex-cli.git](https://github.com/priyanshunawaldev/reflex-cli.git)
 cd reflex
 pip install -r requirements.txt
 
@@ -239,7 +237,7 @@ Built with:
 **Start tracking your productivity today:**
 ```bash
 reflex add "Build something amazing"
-reflex start focus
+reflex focus
 ```
 
 *Reflect. Focus. Improve.* 🧠
