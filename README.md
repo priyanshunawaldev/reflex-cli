@@ -65,6 +65,31 @@ echo "OLLAMA_MODEL=llama2" >> .env
 echo "DEFAULT_AI_PROVIDER=gemini" >> .env  # or anthropic, openai, ollama
 ```
 
+**Set Default Provider:**
+Now, based on details above, create the .env file.
+
+```env
+OPENAI_API_KEY=your_openai_api_key_here
+ANTHROPIC_API_KEY=your_anthropic_api_key_here
+GEMINI_API_KEY="your_gemini_key_here"
+
+# Optional: Specify models (will use defaults if not set)
+OPENAI_MODEL=gpt-3.5-turbo
+ANTHROPIC_MODEL=claude-3-haiku-20240307
+GEMINI_MODEL=gemini-pro
+OLLAMA_MODEL=llama2
+
+# Optional: Set default provider
+DEFAULT_PROVIDER=gemini
+
+GITHUB_USERNAME="your_github_username"
+GITHUB_TOKEN="your_github_token"
+```
+
+_[GitHub personal access token generate here](https://github.com/settings/tokens)_
+
+I have added `.env.example` file for convenience.
+
 ### 3. Install as CLI Tool
 
 ```bash
@@ -73,21 +98,107 @@ pip install -e .
 
 Now you can use `reflex` from anywhere in your terminal!
 
+### Alternative: Direct Usage
+
+If you don't want to install globally, run directly:
+
+```bash
+python main.py [command]
+```
+
 ## 📖 Usage Guide
 
 ### Core Commands
 
-| Command         | Description                                    |
-| --------------- | ---------------------------------------------- |
-| `add`           | 📋 Add a task to your current day              |
-| `complete`      | ✅ Mark a task as completed                    |
-| `list-tasks`    | 📋 List all tasks for today                    |
-| `start-focus`   | ⏱️ Start a focus session with timer            |
-| `log`           | 📖 Add to your daily work log                  |
-| `track-commits` | 🔗 Track today's GitHub commits                |
-| `stats`         | 📊 Show comprehensive productivity metrics     |
-| `review`        | 🤖 Get AI-powered daily review and suggestions |
-| `providers`     | 🔧 Manage AI providers                         |
+| Command         | Description                         |
+| --------------- | ----------------------------------- |
+| `add "task"`    | 📋 Add a task to your current day   |
+| `focus`         | ⏱️ Start a focus session with timer |
+| `log "entry"`   | 📝 Add to your daily work log       |
+| `complete <id>` | ✅ Mark a task as completed         |
+| `list`          | 📋 List all tasks for today         |
+| `stats`         | 📊 Show productivity statistics     |
+| `review`        | 🤖 AI-powered daily review          |
+| `providers`     | 🔧 List supported AI providers      |
+| `track-commits` | 🔗 Track today's GitHub commits     |
+| `help`          | 📚 Show help message                |
+| `full-help`     | 📖 Show this detailed help          |
+
+### AI Configuration
+
+| Section             | Description                                             |
+| ------------------- | ------------------------------------------------------- |
+| **OPTIONS:**        |                                                         |
+| `--provider`        | Specify AI provider (openai, anthropic, gemini, ollama) |
+| `--model`           | Specify AI model name                                   |
+| **SETUP:**          |                                                         |
+| `.env keys`         | Set API keys in `.env` file                             |
+| `OPENAI_API_KEY`    | Set OpenAI API key                                      |
+| `ANTHROPIC_API_KEY` | Set Anthropic API key                                   |
+| `GEMINI_API_KEY`    | Set Gemini API key                                      |
+
+### It also contains a detailed help section.
+
+# 🧠 Reflex – Productivity Tracker in Terminal
+
+> **Built for developers. Focus better. Reflect deeper. Work smarter.**
+
+---
+
+### 📦 USAGE
+
+```bash
+python main.py <command> [content]
+```
+
+---
+
+### 🛠️ Commands
+
+| Command         | Description                    |
+| --------------- | ------------------------------ |
+| `add "task"`    | Add a task to your current day |
+| `focus`         | Start a timed focus session    |
+| `log "entry"`   | Log work done or thoughts      |
+| `complete <id>` | Mark task as completed         |
+| `list`          | List all tasks for today       |
+| `stats`         | View daily task/time stats     |
+| `review`        | Generate AI review summary     |
+| `providers`     | List supported AI providers    |
+| `track-commits` | Track today’s GitHub commits   |
+| `help`          | Show basic help                |
+| `full-help`     | Show extended help             |
+
+---
+
+### 🤖 AI Options & Setup
+
+**Flags**
+
+```bash
+--provider openai | anthropic | gemini | ollama
+--model <model-name>
+```
+
+**.env Setup**
+
+```env
+OPENAI_API_KEY=...
+ANTHROPIC_API_KEY=...
+GEMINI_API_KEY=...
+# Ollama runs locally (no key needed)
+```
+
+---
+
+### 💡 Examples
+
+```bash
+python main.py add "Write tests"
+python main.py log "Debugged auth module"
+python main.py review --provider openai
+python main.py stats
+```
 
 ### Task Management
 
@@ -302,24 +413,6 @@ ls ~/.reflex/
 # Query with sqlite3
 sqlite3 ~/.reflex/reflex.db "SELECT * FROM tasks WHERE date_added = date('now');"
 ```
-
-### Development Setup
-
-```bash
-# Clone and setup
-git clone https://github.com/priyanshunawaldev/reflex-cli.git
-cd reflex
-pip install -r requirements.txt
-
-# Install development dependencies
-pip install -e .[dev]
-
-# Format code
-black .
-isort .
-```
-
-## 🐛 Troubleshooting
 
 ### AI Provider Issues
 

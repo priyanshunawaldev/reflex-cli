@@ -1,0 +1,48 @@
+[project]
+name = "reflex"
+description = "🧠 Reflex - AI-Powered Terminal Productivity Tracker"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    { name = "Priyanshu Nawal" }
+]
+dynamic = ["version"]
+license = "MIT"
+keywords = ["productivity", "cli", "ai", "tasks", "focus", "terminal", "tracking", "pomodoro"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Topic :: Utilities"
+]
+
+dependencies = [
+    "typer",
+    "rich",
+    "python-dotenv",
+    "requests"
+]
+
+[project.optional-dependencies]
+ai = [
+    "openai",
+    "anthropic",
+    "google-generativeai"
+]
+openai = ["openai"]
+anthropic = ["anthropic"]
+gemini = ["google-generativeai"]
+ollama = []
+
+[project.scripts]
+reflex = "main:app"
+
+[build-system]
+requires = ["setuptools", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+
+[tool.setuptools_scm]
+version_scheme = "post-release"
+local_scheme = "no-local-version"
+

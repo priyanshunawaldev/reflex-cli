@@ -15,11 +15,10 @@ def add_task(task: str):
         return
     
     clean_task = clean_user_input(task)
-    timestamp = datetime.datetime.now().isoformat()
     
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO tasks (task, timestamp) VALUES (?, ?)", (clean_task, timestamp))
+    cursor.execute("INSERT INTO tasks (task) VALUES (?)", (clean_task,))
     conn.commit()
     conn.close()
 

@@ -1,9 +1,0 @@
-README.md
-setup.py
-reflex_cli.egg-info/PKG-INFO
-reflex_cli.egg-info/SOURCES.txt
-reflex_cli.egg-info/dependency_links.txt
-reflex_cli.egg-info/entry_points.txt
-reflex_cli.egg-info/not-zip-safe
-reflex_cli.egg-info/requires.txt
-reflex_cli.egg-info/top_level.txt

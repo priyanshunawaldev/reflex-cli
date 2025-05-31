@@ -1,39 +1,11 @@
-
-# Ignore virtual environment files
+# Ignore the virtual environment directory
 .venv/
-.env/
 
-# Ignore IDE files
+# Ignore IDE and editor specific files
 .vscode/
-.idea/
-pycharm/
 
-# Ignore operating system files
-.DS_Store
-Thumbs.db
+#Ignore environment variables
+.env
 
-# Ignore log files
-*.log
-
-# Ignore SQLite database files
-*.db
-
-# Ignore Python bytecode files
-*.pyc
-*.pyo
-*.pyd
-
-# Ignore Gitbook files
-_book/
-
-# Ignore reflex-cli specific files
-reflex.db
-reflex_cli.egg-info
-
-# Ignore pycache directories
+# Ignore Python cache files
 __pycache__/
-.pytest_cache/
-
-#Ignore environment files
-.env*
-
