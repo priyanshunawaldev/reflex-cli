@@ -1,0 +1,39 @@
+
+# Ignore virtual environment files
+.venv/
+.env/
+
+# Ignore IDE files
+.vscode/
+.idea/
+pycharm/
+
+# Ignore operating system files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Ignore SQLite database files
+*.db
+
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore Gitbook files
+_book/
+
+# Ignore reflex-cli specific files
+reflex.db
+reflex_cli.egg-info
+
+# Ignore pycache directories
+__pycache__/
+.pytest_cache/
+
+#Ignore environment files
+.env*
+

@@ -1,9 +1,14 @@
-typer
-rich
-openai
-anthropic
-google-generativeai
-llama-cpp-python
-python-dotenv
+# Core dependencies
+rich>=13.0.0
+python-dotenv>=1.0.0
+typer>=0.7.0
 
+# AI Providers (optional - install as needed)
+openai>=1.0.0
+anthropic>=0.7.0
+google-generativeai>=0.3.0
+ollama>=0.1.0
+
+
+# Development dependencies
 setuptools
