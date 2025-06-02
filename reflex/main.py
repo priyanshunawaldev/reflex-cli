@@ -6,17 +6,26 @@ from typing import Optional
 
 from reflex.tracker import cli_help, tasks, logs, focus, review, db, github
 from reflex.tracker.stats import show_stats
+from typer.core import TyperGroup
+
+class CustomGroup(TyperGroup):
+    def get_command(self, ctx, cmd_name):
+        cmd = super().get_command(ctx, cmd_name)
+        if cmd is None:
+            console.print(f"[red]Unknown command: '{cmd_name}'[/red]")
+            cli_help.show_help()
+            ctx.exit()
+        return cmd
 
 app = typer.Typer(
+    cls=CustomGroup,
     help="🧠 Reflex - AI-Powered Terminal Productivity Tracker",
     rich_markup_mode="rich",
     invoke_without_command=True,
     add_completion=False,
 )
 
-
 console = Console()
-
 
 @app.callback()
 def main(ctx: typer.Context):

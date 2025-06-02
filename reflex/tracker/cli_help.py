@@ -23,7 +23,7 @@ def show_help():
     commands_table.add_column("Description", style="white")
 
     commands_table.add_row('add "task"', "📋 Add a task to your current day")
-    commands_table.add_row("focus", "⏱️ Start a focus session with timer")
+    commands_table.add_row("start-focus", "⏱️ Start a focus session with timer")
     commands_table.add_row('log "entry"', "📝 Add to your daily work log")
     commands_table.add_row("complete <id>", "✅ Mark a task as completed")
     commands_table.add_row("list", "📋 List all tasks for today")
@@ -71,7 +71,7 @@ def show_full_help():
     cmd_table.add_column("Description", style="white")
 
     cmd_table.add_row("add \"task\"",        "Add a task to your current day")
-    cmd_table.add_row("focus",              "Start a timed focus session")
+    cmd_table.add_row("start-focus",              "Start a timed focus session")
     cmd_table.add_row("log \"entry\"",      "Log work done or thoughts")
     cmd_table.add_row("complete <id>",      "Mark task as completed")
     cmd_table.add_row("list",               "List all tasks for today")
