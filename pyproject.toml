@@ -35,7 +35,7 @@ gemini = ["google-generativeai"]
 ollama = []
 
 [project.scripts]
-reflex = "main:app"
+reflex = "reflex.main:app"
 
 [build-system]
 requires = ["setuptools", "setuptools_scm"]
@@ -45,4 +45,3 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools_scm]
 version_scheme = "post-release"
 local_scheme = "no-local-version"
-

@@ -9,3 +9,6 @@
 
 # Ignore Python cache files
 __pycache__/
+
+# Ignore the reflex build directory
+reflex.egg-info/

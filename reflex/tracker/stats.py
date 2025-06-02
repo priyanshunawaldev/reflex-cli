@@ -1,8 +1,8 @@
 import os
-from .db import get_daily_stats
+from reflex.tracker.db import get_daily_stats
 from rich.console import Console
 from rich.table import Table 
-from tracker.github import get_commit_count
+from reflex.tracker.github import get_commit_count
 
 def show_stats():
     """Display productivity stats for today."""

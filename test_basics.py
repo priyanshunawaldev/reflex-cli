@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 
-# --- Security helpers (from tracker/security.py) ---
+# --- Security helpers (from reflex/tracker/security.py) ---
 def clean_user_input(text: str) -> str:
     """Clean user input - nothing fancy, just prevent obvious problems"""
     if not text:
@@ -61,7 +61,7 @@ def test_basic_commands():
         
         # Test help flag
         print("Testing help flag...")
-        result = subprocess.run([sys.executable, 'main.py', '--help'], 
+        result = subprocess.run([sys.executable, 'reflex/main.py', '--help'], 
                               capture_output=True, text=True, timeout=10, 
                               encoding='utf-8', errors='ignore')
         if result.returncode != 0:
@@ -73,7 +73,7 @@ def test_basic_commands():
             print("✅ Help flag works")
         
         # Test adding a task
-        result = subprocess.run([sys.executable, 'main.py', 'add', 'Test task'], 
+        result = subprocess.run([sys.executable, 'reflex/main.py', 'add', 'Test task'], 
                               capture_output=True, text=True, timeout=10,
                               encoding='utf-8', errors='ignore')
         if result.returncode != 0:
@@ -84,7 +84,7 @@ def test_basic_commands():
         
         # Test listing tasks
         print("Testing list tasks command...")
-        result = subprocess.run([sys.executable, 'main.py', 'list'], 
+        result = subprocess.run([sys.executable, 'reflex/main.py', 'list-tasks'], 
                               capture_output=True, text=True, timeout=10,
                               encoding='utf-8', errors='ignore')
         if result.returncode != 0:
@@ -98,7 +98,7 @@ def test_basic_commands():
         
         # Test stats
         print("Testing stats command...")
-        result = subprocess.run([sys.executable, 'main.py', 'stats'], 
+        result = subprocess.run([sys.executable, 'reflex/main.py', 'stats'], 
                               capture_output=True, text=True, timeout=10,
                               encoding='utf-8', errors='ignore')
         if result.returncode != 0:
@@ -109,7 +109,7 @@ def test_basic_commands():
         
         # Test log
         print("Testing log command...")
-        result = subprocess.run([sys.executable, 'main.py', 'log', 'Test log'], 
+        result = subprocess.run([sys.executable, 'reflex/main.py', 'log', 'Test log'], 
                               capture_output=True, text=True, timeout=10,
                               encoding='utf-8', errors='ignore')
         if result.returncode != 0:
@@ -146,7 +146,7 @@ def test_malicious_input():
         ]
         
         for bad_input in bad_inputs:  
-            result = subprocess.run([sys.executable, 'main.py', 'add', bad_input], 
+            result = subprocess.run([sys.executable, 'reflex/main.py', 'add', bad_input], 
                                   capture_output=True, text=True, timeout=10,
                                   encoding='utf-8', errors='ignore')
             # Should either work safely or reject cleanly (not crash)
@@ -169,7 +169,7 @@ def run_quick_checks():
     print("Running quick checks...")
     
     # Check if required files exist
-    required_files = ['main.py', 'tracker/__init__.py', 'tracker/db.py']
+    required_files = ['reflex/main.py', 'reflex/tracker/__init__.py', 'reflex/tracker/db.py']
     for file in required_files:
         assert os.path.exists(file), f"Missing required file: {file}"
     
@@ -177,7 +177,7 @@ def run_quick_checks():
     
     # Try importing main modules
     try:
-        from tracker import db, tasks, logs, focus
+        from reflex.tracker import db, tasks, logs, focus
         print("✅ All modules import successfully")
     except ImportError as e:
         print(f"❌ Import error: {e}")
