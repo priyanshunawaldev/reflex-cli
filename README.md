@@ -47,7 +47,7 @@ echo "ANTHROPIC_MODEL=claude-3-haiku-20240307" >> .env
 
 ```bash
 echo "GEMINI_API_KEY=your-key-here" >> .env
-echo "GEMINI_MODEL=gemini-pro" >> .env
+echo "GEMINI_MODEL=models/gemini-1.5-pro-latest" >> .env
 ```
 
 **For Local LLM (Ollama - Free!):**
@@ -62,33 +62,21 @@ echo "OLLAMA_MODEL=llama2" >> .env
 **Set Default Provider:**
 
 ```bash
-echo "DEFAULT_AI_PROVIDER=gemini" >> .env  # or anthropic, openai, ollama
+echo "DEFAULT_PROVIDER=gemini" >> .env  # or anthropic, openai, ollama
 ```
 
-**Set Default Provider:**
 Now, based on details above, create the .env file.
-
-```env
-OPENAI_API_KEY=your_openai_api_key_here
-ANTHROPIC_API_KEY=your_anthropic_api_key_here
-GEMINI_API_KEY="your_gemini_key_here"
-
-# Optional: Specify models (will use defaults if not set)
-OPENAI_MODEL=gpt-3.5-turbo
-ANTHROPIC_MODEL=claude-3-haiku-20240307
-GEMINI_MODEL=gemini-pro
-OLLAMA_MODEL=llama2
-
-# Optional: Set default provider
-DEFAULT_PROVIDER=gemini
-
-GITHUB_USERNAME="your_github_username"
-GITHUB_TOKEN="your_github_token"
-```
+(Find in Configuration below)
 
 _[GitHub personal access token generate here](https://github.com/settings/tokens)_
 
-I have added `.env.example` file for convenience.
+I have added `.env.example` file for convenience. Just copy it from below, and then add your details.
+
+**Simple `.env` Setup**
+
+```bash
+cp .env.example .env
+```
 
 ### 3. Install as CLI Tool
 
@@ -137,67 +125,11 @@ python main.py [command]
 | `ANTHROPIC_API_KEY` | Set Anthropic API key                                   |
 | `GEMINI_API_KEY`    | Set Gemini API key                                      |
 
-### It also contains a detailed help section.
-
-# 🧠 Reflex – Productivity Tracker in Terminal
-
-> **Built for developers. Focus better. Reflect deeper. Work smarter.**
-
----
-
-### 📦 USAGE
+### Detailed Help Section.
 
 ```bash
-python main.py <command> [content]
-```
+reflex full-help
 
----
-
-### 🛠️ Commands
-
-| Command         | Description                    |
-| --------------- | ------------------------------ |
-| `add "task"`    | Add a task to your current day |
-| `focus`         | Start a timed focus session    |
-| `log "entry"`   | Log work done or thoughts      |
-| `complete <id>` | Mark task as completed         |
-| `list`          | List all tasks for today       |
-| `stats`         | View daily task/time stats     |
-| `review`        | Generate AI review summary     |
-| `providers`     | List supported AI providers    |
-| `track-commits` | Track today’s GitHub commits   |
-| `help`          | Show basic help                |
-| `full-help`     | Show extended help             |
-
----
-
-### 🤖 AI Options & Setup
-
-**Flags**
-
-```bash
---provider openai | anthropic | gemini | ollama
---model <model-name>
-```
-
-**.env Setup**
-
-```env
-OPENAI_API_KEY=...
-ANTHROPIC_API_KEY=...
-GEMINI_API_KEY=...
-# Ollama runs locally (no key needed)
-```
-
----
-
-### 💡 Examples
-
-```bash
-python main.py add "Write tests"
-python main.py log "Debugged auth module"
-python main.py review --provider openai
-python main.py stats
 ```
 
 ### Task Management
@@ -359,20 +291,21 @@ All data is stored locally in `~/.reflex/reflex.db`. Your data never leaves your
 ### Environment Variables (.env file)
 
 ```env
-# AI Provider Configuration
-OPENAI_API_KEY=sk-your-openai-key
+OPENAI_API_KEY=your_openai_api_key_here
+ANTHROPIC_API_KEY=your_anthropic_api_key_here
+GEMINI_API_KEY="your_gemini_key_here"
+
+# Optional: Specify models (will use defaults if not set)
 OPENAI_MODEL=gpt-3.5-turbo
-
-ANTHROPIC_API_KEY=sk-ant-your-anthropic-key
 ANTHROPIC_MODEL=claude-3-haiku-20240307
-
-GEMINI_API_KEY=your-gemini-key
-GEMINI_MODEL=gemini-pro
-
+GEMINI_MODEL=models/gemini-1.5-pro-latest
 OLLAMA_MODEL=llama2
 
-# Set your preferred default provider
-DEFAULT_AI_PROVIDER=openai
+# Optional: Set default provider
+DEFAULT_PROVIDER=gemini
+
+GITHUB_USERNAME="your_github_username"
+GITHUB_TOKEN="your_github_token"
 ```
 
 ### Custom Focus Duration
